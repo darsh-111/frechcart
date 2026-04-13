@@ -89,8 +89,9 @@ export default async function ProductDetailsPage({ params }: { params: Promise<{
                             */}
                             <QuantitySelector
                                 productId={product._id}
-                                productPrice={hasDiscount ? product.priceAfterDiscount : product.price}
-                            />
+                                productPrice={hasDiscount
+                                    ? (product.priceAfterDiscount ?? product.price)
+                                    : product.price}                            />
 
                             <WishlistBtn
                                 productId={product._id}
