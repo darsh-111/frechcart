@@ -3,7 +3,7 @@ import { cookies } from "next/headers";
 
 export async function ApiToken() {
     const cookieStore = await cookies()
-    const MyToken = cookieStore.get("next-auth.session-token")?.value;
+    const MyToken = cookieStore.get("next-auth.session-token")?.value ||cookieStore.get("next-auth.session-token")?.value;
 
     const decodedtoken: any = await decode({
         token: MyToken,
